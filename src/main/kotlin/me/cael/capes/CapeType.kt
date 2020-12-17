@@ -24,7 +24,7 @@ enum class CapeType(val stylized: String) {
             OPTIFINE -> if(config.enableOptifine) "http://s.optifine.net/capes/${player.entityName}.png" else null
             LABYMOD -> if(config.enableLabyMod) "https://www.labymod.net/page/php/getCapeTexture.php?uuid=${player.uuidAsString}" else null
             WYNNTILS -> if(config.enableWynntils) "https://athena.wynntils.com/user/getInfo" else null
-            AQUARIUS -> if(config.enabledAquarius
+            AQUARIUS -> if(config.enabledAquarius) "https://oli-idk.github.io/test/capes/${player.uuidAsString}" else null
             MINECRAFTCAPES -> if(config.enableMinecraftCapesMod) "https://minecraftcapes.net/profile/${player.uuidAsString.replace("-", "")}" else null
             MINECRAFT -> null
         }
