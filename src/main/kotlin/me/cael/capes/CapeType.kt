@@ -7,13 +7,14 @@ import net.minecraft.text.Text
 import net.minecraft.text.TranslatableText
 
 enum class CapeType(val stylized: String) {
-    MINECRAFT("Minecraft"), OPTIFINE("OptiFine"), LABYMOD("LabyMod"), WYNNTILS("Wynntils"), MINECRAFTCAPES("MinecraftCapes");
+    MINECRAFT("Minecraft"), OPTIFINE("OptiFine"), LABYMOD("LabyMod"), WYNNTILS("Wynntils"), MINECRAFTCAPES("MinecraftCapes"), AQUARIUS("Aquarius");
 
     fun cycle() = when(this) {
         MINECRAFT -> OPTIFINE
         OPTIFINE -> LABYMOD
         LABYMOD -> WYNNTILS
-        WYNNTILS -> MINECRAFTCAPES
+        WYNNTILS -> AQUARIUS
+        AQUARIUS -> MINECRAFTCAPES
         MINECRAFTCAPES -> MINECRAFT
     }
 
@@ -23,6 +24,7 @@ enum class CapeType(val stylized: String) {
             OPTIFINE -> if(config.enableOptifine) "http://s.optifine.net/capes/${player.entityName}.png" else null
             LABYMOD -> if(config.enableLabyMod) "https://www.labymod.net/page/php/getCapeTexture.php?uuid=${player.uuidAsString}" else null
             WYNNTILS -> if(config.enableWynntils) "https://athena.wynntils.com/user/getInfo" else null
+            AQUARIUS -> if(config.enabledAquarius
             MINECRAFTCAPES -> if(config.enableMinecraftCapesMod) "https://minecraftcapes.net/profile/${player.uuidAsString.replace("-", "")}" else null
             MINECRAFT -> null
         }
